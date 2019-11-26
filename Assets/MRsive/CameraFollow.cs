@@ -9,7 +9,7 @@ public class CameraFollow : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.position = new Vector3(Target.position.x, Target.positiony, Target.position.z);
+        transform.position = new Vector3(Target.position.x, Target.position.y, Target.position.z);
         transform.rotation = Quaternion.Euler(90f, Target.eulerAngles.y, 0f);
     }
 }
