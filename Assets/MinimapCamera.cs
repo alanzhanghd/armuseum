@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MinimapCamera : MonoBehaviour
 {
+    public Camera arCamera;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,13 @@ public class MinimapCamera : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void LateUpdate()
+    {
+        transform.position = new Vector3(arCamera.transform.position.x,
+            arCamera.transform.position.y, arCamera.transform.position.z);
+        transform.rotation = Quaternion.Euler(90f,
+            arCamera.transform.eulerAngles.y, 0f);
     }
 }
