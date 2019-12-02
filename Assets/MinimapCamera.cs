@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//code modified from MRsive's CameraFollow.cs
 public class MinimapCamera : MonoBehaviour
 {
-    public Camera arCamera;
+    public GameObject target;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +20,9 @@ public class MinimapCamera : MonoBehaviour
 
     void LateUpdate()
     {
-        transform.position = new Vector3(arCamera.transform.position.x,
-            arCamera.transform.position.y, arCamera.transform.position.z);
+        transform.position = new Vector3(target.transform.position.x,
+            target.transform.position.y+10, target.transform.position.z);
         transform.rotation = Quaternion.Euler(90f,
-            arCamera.transform.eulerAngles.y, 0f);
+            target.transform.eulerAngles.y, 0f);
     }
 }
